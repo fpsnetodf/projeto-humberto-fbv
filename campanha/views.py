@@ -74,4 +74,4 @@ def equipe_view(request):
 
 
 def marketing_view(request):
-    return render(request, 'marketing.html')  # Certifique-se que o template existe
+    return render(request, 'marketing/marketing.html')  # Certifique-se que o template existe
