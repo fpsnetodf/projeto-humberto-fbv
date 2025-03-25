@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Dashboard{% endblock title %}
+
+{% block conteudo %}
+<div class="min-h-screen bg-gray-100 flex flex-col items-center p-6">
+    <div class="w-full max-w-4xl bg-white shadow-lg rounded-2xl p-6">
+        <h1 class="text-3xl font-bold text-gray-800">Bem-vindo, {{ request.user.username }}!</h1>
+        <p class="text-gray-600 mt-2">Aqui você pode gerenciar sua campanha.</p>
+
+        <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Card 1 -->
+            <div class="bg-blue-500 text-white p-4 rounded-xl shadow-md">
+                <h2 class="text-xl font-semibold">Agenda</h2>
+                <p class="text-sm">Gerencie seus eventos e compromissos.</p>
+                <a href="{% url 'agendas' %}" class="mt-3 inline-block bg-white text-blue-500 px-4 py-2 rounded-md font-semibold">Acessar</a>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-green-500 text-white p-4 rounded-xl shadow-md">
+                <h2 class="text-xl font-semibold">Eleitores</h2>
+                <p class="text-sm">Visualize e gerencie sua base de eleitores.</p>
+                <a href="{% url 'eleitores' %}" class="mt-3 inline-block bg-white text-green-500 px-4 py-2 rounded-md font-semibold">Acessar</a>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-yellow-500 text-white p-4 rounded-xl shadow-md">
+                <h2 class="text-xl font-semibold">Equipe</h2>
+                <p class="text-sm">Organize sua equipe de campanha.</p>
+                <a href="{% url 'equipe' %}" class="mt-3 inline-block bg-white text-yellow-500 px-4 py-2 rounded-md font-semibold">Acessar</a>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="bg-red-500 text-white p-4 rounded-xl shadow-md">
+                <h2 class="text-xl font-semibold">Marketing</h2>
+                <p class="text-sm">Planeje estratégias e materiais de campanha.</p>
+                <a href="{% url 'marketing' %}" class="mt-3 inline-block bg-white text-red-500 px-4 py-2 rounded-md font-semibold">Acessar</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+

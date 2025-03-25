@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="flex items-center justify-center min-h-screen bg-gray-100">
+    <div class="bg-white p-6 rounded-lg shadow-md w-full max-w-sm">
+        <h2 class="text-2xl font-bold text-center mb-4">Login</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-4">
+                <label for="id_username" class="block text-sm font-medium text-gray-700">Usuário</label>
+                <input type="text" name="username" id="id_username" class="mt-1 p-2 w-full border rounded-lg">
+            </div>
+            <div class="mb-4">
+                <label for="id_password" class="block text-sm font-medium text-gray-700">Senha</label>
+                <input type="password" name="password" id="id_password" class="mt-1 p-2 w-full border rounded-lg">
+            </div>
+            <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded-lg">Entrar</button>
+        </form>
+        <p class="mt-4 text-center text-sm text-gray-600">
+            Esqueceu sua senha? <a href="#" class="text-blue-500">Recuperar</a>
+        </p>
+    </div>
+</div>
+{% endblock %}
