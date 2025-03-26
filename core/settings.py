@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'Logistics',
     'Users',
     "campanha",
+    'eleitores'
 ]
 
 MIDDLEWARE = [

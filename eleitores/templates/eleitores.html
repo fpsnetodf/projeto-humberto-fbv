@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Eleitores{% endblock title %}
+
+{% block conteudo %}
+    <div class="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md">
+        <h1 class="text-xl font-bold mb-4">Lista de Eleitores</h1>
+        <ul>
+            {% for eleitor in eleitores %}
+                <li class="border-b py-2">{{ eleitor.nome }} - {{ eleitor.telefone }}</li>
+            {% empty %}
+                <li>Nenhum eleitor cadastrado.</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock conteudo %}
