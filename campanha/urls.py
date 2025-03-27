@@ -8,4 +8,5 @@ urlpatterns = [
     path('eleitores/', views.lista_eleitores, name='eleitores'),
     path('equipe/', views.equipe_view, name='equipe'),
     path('marketing/', views.marketing_view, name='marketing'),  # Define a URL
+    path('contato/', views.contato, name='contato'),
 ]

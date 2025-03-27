@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}
+Lista de Rotas
+{% endblock title %}
+
+{% block conteudo %}
+<div class="container mx-auto p-8">
+    <h1 class="text-2xl font-bold text-gray-700 mb-6">Lista de Rotas Planejadas</h1>
+    <a href="{% url 'criar_rota' %}" class="bg-indigo-500 text-white px-4 py-2 rounded-lg hover:bg-indigo-600 mb-4 inline-block">Criar Nova Rota</a>
+    <table class="w-full border border-gray-300 rounded-lg mt-4">
+        <thead>
+            <tr class="bg-gray-200">
+                <th class="border px-4 py-2">Origem</th>
+                <th class="border px-4 py-2">Destino</th>
+                <th class="border px-4 py-2">Data</th>
+                <th class="border px-4 py-2">Veículo</th>
+                <th class="border px-4 py-2">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for rota in rotas %}
+            <tr>
+                <td class="border px-4 py-2">{{ rota.origem }}</td>
+                <td class="border px-4 py-2">{{ rota.destino }}</td>
+                <td class="border px-4 py-2">{{ rota.data }}</td>
+                <td class="border px-4 py-2">{{ rota.veiculo }}</td>
+                <td class="border px-4 py-2">
+                    <a href="{% url 'detalhe_rota' rota.id %}" class="text-blue-600 hover:underline">Detalhes</a>
+                    <a href="{% url 'editar_rota' rota.id %}" class="text-yellow-600 hover:underline ml-2">Editar</a>
+                    <a href="{% url 'deletar_rota' rota.id %}" class="text-red-600 hover:underline ml-2">Excluir</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5" class="text-center text-gray-500 py-4">Nenhuma rota encontrada.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock conteudo %}

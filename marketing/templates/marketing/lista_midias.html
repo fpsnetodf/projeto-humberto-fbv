@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Mídias de Campanha
+{% endblock title %}
+
+{% block conteudo %}
+    <div class="flex items-center justify-center min-h-screen bg-gray-100">
+        <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-4xl">
+            <div class="container mx-auto p-8">
+                <h1 class="text-2xl font-bold text-gray-700 mb-6">Mídias de Campanha</h1>
+                <a href="{% url 'upload_midia' %}" class="bg-indigo-500 text-white px-4 py-2 rounded-lg hover:bg-indigo-600 mb-4 inline-block">Upload de Mídia</a>
+                <ul class="space-y-4">
+                    {% for midia in midias %}
+                    <li class="bg-white shadow-md rounded-lg p-4">
+                        <strong>{{ midia.titulo }}</strong> - {{ midia.get_tipo_display }}
+                        <a href="{{ midia.arquivo.url }}" target="_blank" class="text-blue-600 hover:underline ml-4">Visualizar</a>
+                    </li>
+                    {% empty %}
+                    <li class="text-center text-gray-500">Nenhuma mídia encontrada.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock conteudo %}

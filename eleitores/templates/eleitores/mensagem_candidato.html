@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}
+Mensagem ao Candidato
+{% endblock title %}
+
+{% block conteudo %}
+<div class="container mx-auto p-8">
+    <h1 class="text-2xl font-bold text-gray-700 mb-6">Enviar Mensagem ao Candidato</h1>
+    <form method="POST" class="space-y-4">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="bg-indigo-500 text-white px-6 py-2 rounded-lg hover:bg-indigo-600">Enviar Mensagem</button>
+    </form>
+</div>
+{% endblock conteudo %}

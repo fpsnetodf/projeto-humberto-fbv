@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Rotas{% endblock title %}
+
+{% block conteudo %}
+    <h1 class="text-2xl font-bold mb-4">Rotas Planejadas</h1>
+    <table class="w-full border">
+        <thead>
+            <tr>
+                <th class="border px-2 py-1">Origem</th>
+                <th class="border px-2 py-1">Destino</th>
+                <th class="border px-2 py-1">Data</th>
+                <th class="border px-2 py-1">Veículo</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for rota in rotas %}
+            <tr>
+                <td class="border px-2 py-1">{{ rota.origem }}</td>
+                <td class="border px-2 py-1">{{ rota.destino }}</td>
+                <td class="border px-2 py-1">{{ rota.data }}</td>
+                <td class="border px-2 py-1">{{ rota.veiculo }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock conteudo %}

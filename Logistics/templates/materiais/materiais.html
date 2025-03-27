@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Materiais{% endblock title %}
+
+{% block conteudo %}
+    <h1 class="text-2xl font-bold mb-4">Materiais de Campanha</h1>
+    <ul>
+        {% for material in materiais %}
+        <li>
+            <strong>{{ material.nome }}</strong> - {{ material.quantidade }} unidade(s) - {{ material.tipo }}
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock conteudo %}

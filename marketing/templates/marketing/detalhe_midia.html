@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}
+Detalhes da Mídia
+{% endblock title %}
+
+{% block conteudo %}
+<div class="container mx-auto p-8">
+    <h1 class="text-2xl font-bold text-gray-800 mb-6">Detalhes da Mídia</h1>
+    
+    <div class="bg-white shadow-md rounded-lg p-6 space-y-4">
+        <p><strong>Título:</strong> {{ midia.titulo }}</p>
+        <p><strong>Tipo:</strong> {{ midia.get_tipo_display }}</p>
+        <p><strong>Responsável:</strong> {{ midia.responsavel }}</p>
+        <p><strong>Data de Criação:</strong> {{ midia.data_criacao }}</p>
+        <div>
+            <a href="{{ midia.arquivo.url }}" target="_blank" class="text-indigo-500 hover:underline">
+                Baixar Mídia
+            </a>
+        </div>
+    </div>
+    
+    <div class="mt-4">
+        <a href="{% url 'lista_midias' %}" class="text-indigo-500 hover:underline">Voltar para Lista de Mídias</a>
+    </div>
+</div>
+{% endblock conteudo %}

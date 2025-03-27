@@ -6,7 +6,11 @@
   "scripts": {
     "watch": "npx @tailwindcss/cli -i static/css/input.css -o static/css/style.css --watch",
     "pdb": "python3 manage.py makemigrations && python3 manage.py migrate",
+<<<<<<< HEAD
     "start": "python3 manage.py runserver", 
+=======
+    "start": "python3 manage.py runserver",
+>>>>>>> abc5463 (ajustanto templates)
     "app": "python3 manage.py startapp"
   },
   "name": "projeto-humberto-fbv",

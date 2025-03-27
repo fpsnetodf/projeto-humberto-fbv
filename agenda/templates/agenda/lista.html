@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Agenda{% endblock title %}
+
+{% block conteudo %}
+    <div class="container mx-auto p-8">
+        <h1 class="text-2xl font-bold mb-4">Agendas</h1>
+        <table class="w-full border-collapse">
+            <thead>
+                <tr>
+                    <th class="border px-4 py-2">Título</th>
+                    <th class="border px-4 py-2">Data</th>
+                    <th class="border px-4 py-2">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for agenda in agendas %}
+                <tr>
+                    <td class="border px-4 py-2">{{ agenda.titulo }}</td>
+                    <td class="border px-4 py-2">{{ agenda.data }}</td>
+                    <td class="border px-4 py-2">{{ agenda.status }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock conteudo %}

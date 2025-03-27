@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Cadastro lista{% endblock title %}
+
+{% block conteudo %}
+<h1 class="text-2xl font-bold mb-4">Cadastro de Lideranças</h1>
+<ul>
+    {% for lider in liderancas %}
+    <li><strong>{{ lider.nome }}</strong> - {{ lider.cargo }} - Meta: {{ lider.meta }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock conteudo %}

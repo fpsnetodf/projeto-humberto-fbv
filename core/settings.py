@@ -41,7 +41,15 @@ INSTALLED_APPS = [
     'Logistics',
     'Users',
     "campanha",
+<<<<<<< HEAD
     'eleitores'
+=======
+    "usuarios",
+    "marketing",
+    "eleitores",
+    "agenda",
+    "liderancas"
+>>>>>>> abc5463 (ajustanto templates)
 ]
 
 MIDDLEWARE = [
@@ -128,5 +136,8 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTH_USER_MODEL = 'campanha.Usuario'
+AUTH_USER_MODEL = 'usuarios.CustomUser'
+
 LOGIN_URL = "/login/"
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = '/login/' 

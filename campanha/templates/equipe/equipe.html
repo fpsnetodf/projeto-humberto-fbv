@@ -1,8 +1,51 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+{% load static %}
 
-{% block title %}Equipe{% endblock %}
+{% block title %}
+Equipe
+{% endblock title %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/equipe.css' %}">
+{% endblock head %}
+
+{% block header %}
+<header class="bg-indigo-500 text-white p-4">
+    <h1 class="text-center text-3xl font-bold">Nossa Equipe</h1>
+</header>
+{% endblock header %}
 
 {% block conteudo %}
-  <h1 class="text-2xl font-bold text-gray-800">Equipe</h1>
-  <p class="text-gray-600">Aqui você pode gerenciar sua equipe.</p>
-{% endblock %}
+<div class="container mx-auto px-4 py-8">
+    <h2 class="text-2xl font-semibold text-gray-700 mb-6">Conheça os membros da nossa equipe</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Membro 1 -->
+        <div class="bg-white shadow-md rounded-lg p-6 text-center">
+            <img src="{% static 'images/membro1.jpg' %}" alt="Foto do Membro 1" class="rounded-full w-32 h-32 mx-auto mb-4">
+            <h3 class="text-xl font-bold text-gray-800">Membro 1</h3>
+            <p class="text-gray-600">Cargo: Desenvolvedor</p>
+            <p class="text-gray-600 mt-2">Descrição breve sobre este membro da equipe.</p>
+        </div>
+        <!-- Membro 2 -->
+        <div class="bg-white shadow-md rounded-lg p-6 text-center">
+            <img src="{% static 'images/membro2.jpg' %}" alt="Foto do Membro 2" class="rounded-full w-32 h-32 mx-auto mb-4">
+            <h3 class="text-xl font-bold text-gray-800">Membro 2</h3>
+            <p class="text-gray-600">Cargo: Designer</p>
+            <p class="text-gray-600 mt-2">Descrição breve sobre este membro da equipe.</p>
+        </div>
+        <!-- Membro 3 -->
+        <div class="bg-white shadow-md rounded-lg p-6 text-center">
+            <img src="{% static 'images/membro3.jpg' %}" alt="Foto do Membro 3" class="rounded-full w-32 h-32 mx-auto mb-4">
+            <h3 class="text-xl font-bold text-gray-800">Membro 3</h3>
+            <p class="text-gray-600">Cargo: Gerente de Projetos</p>
+            <p class="text-gray-600 mt-2">Descrição breve sobre este membro da equipe.</p>
+        </div>
+    </div>
+</div>
+{% endblock conteudo %}
+
+{% block script %}
+<script>
+    // Adicione scripts aqui, se necessário
+</script>
+{% endblock script %}

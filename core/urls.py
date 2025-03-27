@@ -20,7 +20,17 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("campanha.urls")),
+<<<<<<< HEAD
     path("", include("Logistics.urls")),
     path("", include("Users.urls")),
     path("", include("eleitores.urls"))
+=======
+    path("logistics/", include("Logistics.urls")),  # Alterado para letras minúsculas
+    path("users/", include("Users.urls")),          # Alterado para letras minúsculas
+    path("agenda/", include("agenda.urls")),
+    path("liderancas/", include("liderancas.urls")),
+    path("eleitores/", include("eleitores.urls")),   
+    path("marketing/", include("marketing.urls")),  # Barra final adicionada
+    path("login/", include("usuarios.urls")),
+>>>>>>> abc5463 (ajustanto templates)
 ]

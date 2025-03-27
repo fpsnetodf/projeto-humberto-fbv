@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Detalhes da Rota
+{% endblock title %}
+
+{% block conteudo %}
+<div class="container mx-auto p-8">
+    <h1 class="text-2xl font-bold text-gray-700 mb-6">Detalhes da Rota</h1>
+    <div class="bg-white shadow-md rounded-lg p-6">
+        <p><strong>Origem:</strong> {{ rota.origem }}</p>
+        <p><strong>Destino:</strong> {{ rota.destino }}</p>
+        <p><strong>Data:</strong> {{ rota.data }}</p>
+        <p><strong>Veículo:</strong> {{ rota.veiculo }}</p>
+        <p><strong>Responsável:</strong> {{ rota.responsavel }}</p>
+    </div>
+    <a href="{% url 'editar_rota' rota.id %}" class="bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 mt-4 inline-block">Editar</a>
+    <a href="{% url 'lista_rotas' %}" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 mt-4 inline-block">Voltar</a>
+</div>
+{% endblock conteudo %}

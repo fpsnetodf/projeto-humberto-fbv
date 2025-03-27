@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Criar Agenda
+{% endblock title %}
+
+{% block conteudo %}
+<div class="container mx-auto p-8">
+    <h1 class="text-2xl font-bold text-gray-700 mb-6">Criar Nova Agenda</h1>
+    <form method="POST" class="space-y-4">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="bg-indigo-500 text-white px-6 py-2 rounded-lg hover:bg-indigo-600">Salvar</button>
+    </form>
+</div>
+{% endblock conteudo %}

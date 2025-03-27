@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}
+Lista de Eleitores
+{% endblock title %}
+
+{% block conteudo %}
+<div class="container mx-auto p-8">
+    <h1 class="text-2xl font-bold text-gray-700 mb-6">Eleitores Cadastrados</h1>
+    <a href="{% url 'criar_eleitor' %}" class="bg-indigo-500 text-white px-4 py-2 rounded-lg hover:bg-indigo-600 mb-4 inline-block">Cadastrar Novo Eleitor</a>
+    <table class="w-full border border-gray-300 rounded-lg mt-4">
+        <thead>
+            <tr class="bg-gray-200">
+                <th class="border px-4 py-2">Nome</th>
+                <th class="border px-4 py-2">Contato</th>
+                <th class="border px-4 py-2">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for eleitor in eleitores %}
+            <tr>
+                <td class="border px-4 py-2">{{ eleitor.nome }}</td>
+                <td class="border px-4 py-2">{{ eleitor.contato }}</td>
+                <td class="border px-4 py-2">
+                    <a href="{% url 'detalhe_eleitor' eleitor.id %}" class="text-blue-600 hover:underline">Detalhes</a>
+                    <a href="{% url 'editar_eleitor' eleitor.id %}" class="text-yellow-600 hover:underline ml-2">Editar</a>
+                    <a href="{% url 'deletar_eleitor' eleitor.id %}" class="text-red-600 hover:underline ml-2">Excluir</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="3" class="text-center text-gray-500 py-4">Nenhum eleitor cadastrado.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock conteudo %}

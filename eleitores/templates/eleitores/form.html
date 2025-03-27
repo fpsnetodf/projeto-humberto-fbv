@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Cadastro de Eleitores{% endblock title %}
+
+
+{% block conteudo %}
+<h1 class="text-2xl font-bold mb-4">Envie sua mensagem ao Candidato</h1>
+<form method="POST">
+    {% csrf_token %}
+    <label>Nome</label>
+    <input type="text" name="nome" class="border px-2 py-1 rounded">
+    <label>Contato</label>
+    <input type="text" name="contato" class="border px-2 py-1 rounded">
+    <label>Mensagem</label>
+    <textarea name="mensagem" class="border px-2 py-1 rounded"></textarea>
+    <button type="submit" class="bg-indigo-500 text-white px-4 py-2 rounded">Enviar</button>
+</form>
+
+{% endblock conteudo %}

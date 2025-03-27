@@ -1,14 +1,13 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .models import Agenda, Usuario
+from .models import Agenda
+from Users.models import CustomUser
 
 @login_required
 def lista_agendas(request):
-    if not request.user.is_authenticated:
-        return redirect('login')  # Redirecione para a página de login
-
-    agendas = Agenda.objects.filter(criado_por=request.user)
+    user = CustomUser.objects.get(username="Paulo")  # Ajuste aqui para usar o campo correto
+    agendas = Agenda.objects.filter(user=user)
     return render(request, 'agenda/agenda_list.html', {'agendas': agendas})
 
 
@@ -26,7 +25,7 @@ def criar_agenda(request):
             criado_por=request.user
         )
         return redirect('lista_agendas')
-    return render(request, 'campaign/criar_agenda.html')
+    return render(request, 'agenda/criar_agenda.html')
 
 
 
@@ -63,15 +62,20 @@ def nova_agenda(request):
 
 @login_required
 def dashboard(request):
-    return render(request, 'dashboard/dashboard.html')
+    return render(request, 'dashboard/dashboard4.html')
 
 def lista_eleitores(request):
-    return render(request, 'eleitores.html')  # Certifique-se que este template existe
+    return render(request, 'eleitores/eleitores.html')  # Certifique-se que este template existe
 
 
 def equipe_view(request):
-    return render(request, 'equipe.html')  # Certifique-se que este template existe
+    return render(request, 'equipe/equipe.html')  # Certifique-se que este template existe
 
 
 def marketing_view(request):
-    return render(request, 'marketing/marketing.html')  # Certifique-se que o template existe
+    return render(request, 'marketing/marketing.html')  # Certifique-se que o template existe.
+
+from django.shortcuts import render
+
+def contato(request):
+    return render(request, 'contato/contato.html')

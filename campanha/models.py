@@ -1,23 +1,20 @@
 from django.db import models
 from Users.models import CustomUser
-from django.contrib.auth.models import AbstractUser
-
-
-class Usuario(AbstractUser):
-    CARGO_CHOICES = [
-        ('coordenador', 'Coordenador'),
-        ('lideranca', 'Liderança'),
-        ('eleitor', 'Eleitor'),
-    ]
-    cargo = models.CharField(max_length=20, choices=CARGO_CHOICES)
-    telefone = models.CharField(max_length=15, blank=True, null=True)
-
 
 class Agenda(models.Model):
-    titulo = models.CharField(max_length=100)
-    descricao = models.TextField(blank=True, null=True)
-    data = models.DateField()
-    horario = models.TimeField()
+    # Usuário associado à agenda
+    user = models.ForeignKey(
+        CustomUser,
+        on_delete=models.CASCADE,
+        related_name='agendas_associadas',  # Nome personalizado único
+        verbose_name='Usuário associado'
+    )
+
+    titulo = models.CharField(max_length=100, verbose_name='Título')
+    descricao = models.TextField(blank=True, null=True, verbose_name='Descrição')
+    data = models.DateField(verbose_name='Data')
+    horario = models.TimeField(verbose_name='Horário')
+
     status = models.CharField(
         max_length=20,
         choices=[
@@ -25,13 +22,35 @@ class Agenda(models.Model):
             ('confirmada', 'Confirmada'),
             ('conflito', 'Conflito')
         ],
-        default='pendente'
+        default='pendente',
+        verbose_name='Status'
     )
-    criado_por = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    aprovado_por = models.ForeignKey(CustomUser, related_name='aprovacoes', on_delete=models.SET_NULL, null=True, blank=True)
+
+    # Criador da agenda
+    criado_por = models.ForeignKey(
+        CustomUser,
+        on_delete=models.CASCADE,
+        related_name='agendas_criadas',  # Nome personalizado único
+        verbose_name='Criado por'
+    )
+
+    # Usuário que aprovou a agenda
+    aprovado_por = models.ForeignKey(
+        CustomUser,
+        on_delete=models.SET_NULL,
+        related_name='agendas_aprovadas',  # Nome único para evitar conflitos
+        null=True,
+        blank=True,
+        verbose_name='Aprovado por'
+    )
+
+    def __str__(self):
+        return self.titulo
+
 
     def is_conflicting(self):
         # Verifica se há conflitos na mesma data e horário
         return Agenda.objects.filter(data=self.data, horario=self.horario).exclude(id=self.id).exists()
+
 
 

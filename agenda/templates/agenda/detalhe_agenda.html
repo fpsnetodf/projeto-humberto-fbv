@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Detalhes da Agenda
+{% endblock title %}
+
+{% block conteudo %}
+<div class="container mx-auto p-8">
+    <h1 class="text-2xl font-bold text-gray-700 mb-6">Detalhes da Agenda</h1>
+    <div class="bg-white shadow-md rounded-lg p-6">
+        <p><strong>Título:</strong> {{ agenda.titulo }}</p>
+        <p><strong>Descrição:</strong> {{ agenda.descricao }}</p>
+        <p><strong>Data:</strong> {{ agenda.data }}</p>
+        <p><strong>Horário:</strong> {{ agenda.horario }}</p>
+        <p><strong>Status:</strong> {{ agenda.get_status_display }}</p>
+    </div>
+    <a href="{% url 'editar_agenda' agenda.id %}" class="bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 mt-4 inline-block">Editar</a>
+    <a href="{% url 'lista_agendas' %}" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 mt-4 inline-block">Voltar</a>
+</div>
+{% endblock conteudo %}
