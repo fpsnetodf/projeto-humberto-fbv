@@ -10,7 +10,7 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('marketing', '0001_initial'),
+        ('Logistics', '0001_initial'),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
@@ -18,16 +18,11 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='material',
             name='responsavel',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='marketing_materials', to=settings.AUTH_USER_MODEL),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='logistics_materials', to=settings.AUTH_USER_MODEL),
         ),
         migrations.AddField(
-            model_name='midia',
+            model_name='rota',
             name='responsavel',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL),
-        ),
-        migrations.AddField(
-            model_name='postagem',
-            name='criado_por',
             field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL),
         ),
     ]

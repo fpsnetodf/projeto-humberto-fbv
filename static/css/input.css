@@ -1,6 +1,11 @@
 @import "tailwindcss";
 
+@tailwindcss base;
+@tailwincss utilities;
+@tailwindcss components;
+
+
 
 body{
-    @apply bg-gray-400 
+    @apply bg-gray-900 
 }
