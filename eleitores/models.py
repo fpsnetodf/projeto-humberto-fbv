@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Eleitor(models.Model):
-<<<<<<< HEAD
+
     nome = models.CharField(max_length=255)
     telefone = models.CharField(max_length=20, blank=True, null=True)
     endereco = models.TextField(blank=True, null=True)
@@ -10,12 +10,7 @@ class Eleitor(models.Model):
 
     def __str__(self):
         return self.nome
-=======
-    nome = models.CharField(max_length=100)
-    contato = models.CharField(max_length=50, blank=True, null=True)  # Campo opcional
 
-    def __str__(self):
-        return self.nome
 
 
 
@@ -35,4 +30,4 @@ class Mensagem(models.Model):
 
     def __str__(self):
         return f"Mensagem de {self.nome} em {self.data_envio.strftime('%d/%m/%Y')}"
->>>>>>> abc5463 (ajustanto templates)
+

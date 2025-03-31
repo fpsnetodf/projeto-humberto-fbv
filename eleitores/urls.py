@@ -2,10 +2,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-<<<<<<< HEAD
-    path('eleitores/', views.lista_eleitores, name='lista_eleitores'),
-]
-=======
+    # path('eleitores/', views.lista_eleitores, name='lista_eleitores'),
     # Página inicial da lista de eleitores
     path('', views.lista_eleitores, name='lista_eleitores'),
     
@@ -24,4 +21,4 @@ urlpatterns = [
     # Página para enviar uma mensagem ao candidato
     path('mensagem/', views.enviar_mensagem, name='enviar_mensagem'),
 ]
->>>>>>> abc5463 (ajustanto templates)
+

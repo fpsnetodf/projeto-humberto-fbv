@@ -38,18 +38,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',    
-    'Logistics',
-    'Users',
-    "campanha",
-<<<<<<< HEAD
-    'eleitores'
-=======
-    "usuarios",
-    "marketing",
-    "eleitores",
     "agenda",
-    "liderancas"
->>>>>>> abc5463 (ajustanto templates)
+    "campanha",
+    "eleitores",
+    "liderancas",
+    'Logistics',
+    "marketing",
+    'Users',
+    "usuarios",
+
 ]
 
 MIDDLEWARE = [

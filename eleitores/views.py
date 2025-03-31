@@ -1,13 +1,4 @@
-<<<<<<< HEAD
 
-# views.py
-from django.shortcuts import render
-from .models import Eleitor
-
-def lista_eleitores(request):
-    eleitores = Eleitor.objects.all()
-    return render(request, 'eleitores.html', {'eleitores': eleitores})
-=======
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Eleitor, Mensagem
 from .forms import EleitorForm, MensagemForm
@@ -64,4 +55,4 @@ def enviar_mensagem(request):
         form = MensagemForm()
     return render(request, 'eleitores/mensagem_candidato.html', {'form': form})
 
->>>>>>> abc5463 (ajustanto templates)
+

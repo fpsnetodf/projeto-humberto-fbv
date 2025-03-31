@@ -4,16 +4,16 @@ from .models import Eleitor, Mensagem
 class EleitorForm(forms.ModelForm):
     class Meta:
         model = Eleitor
-        fields = ['nome', 'contato']
+        fields = ['nome', 'telefone']
         widgets = {
             'nome': forms.TextInput(attrs={
                 'class': 'w-full px-4 py-2 border border-gray-300 rounded-lg',
                 'placeholder': 'Nome do Eleitor',
                 'required': True
             }),
-            'contato': forms.TextInput(attrs={
+            'telefon': forms.TextInput(attrs={
                 'class': 'w-full px-4 py-2 border border-gray-300 rounded-lg',
-                'placeholder': 'E-mail ou Telefone (opcional)',
+                'placeholder': 'Telefone (opcional)',
             }),
         }
 
